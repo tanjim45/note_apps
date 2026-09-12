@@ -63,7 +63,7 @@ class HomeScreen extends StatelessWidget {
                     horizontal: 16,
                     vertical: 10,
                   ),
-                  // 👇 Title বড় ও Bold করা হলো
+                  
                   title: Text(
                     note['title'],
                     style: const TextStyle(
@@ -95,7 +95,7 @@ class HomeScreen extends StatelessWidget {
                     onPressed: () {
                       notesCollection.doc(note.id).delete();
 
-                      // 🗑️ Delete SnackBar (bonus)
+                      // Delete SnackBar 
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(
                           content: Text('Note Deleted'),
