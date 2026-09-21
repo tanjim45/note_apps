@@ -20,7 +20,7 @@ class _LoginScreenState extends State<LoginScreen> {
   String error = '';
   bool isLoading = false;
   bool isGoogleLoading = false;
-  bool obscurePassword = true;
+  bool obscurePassword = true;   
 
   Future<void> login() async {
     setState(() {

@@ -15,7 +15,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   bool isLoading = false;
   bool obscurePassword = true;
 
-  Future<void> register() async {
+  Future<void> register() async    {
     setState(() {
       isLoading = true;
       error = '';
