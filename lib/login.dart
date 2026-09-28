@@ -4,7 +4,6 @@ import 'package:noteapp/google%20service.dart';
 import 'package:noteapp/home.dart';
 import 'package:noteapp/register.dart';
 
-
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
   @override
@@ -20,7 +19,7 @@ class _LoginScreenState extends State<LoginScreen> {
   String error = '';
   bool isLoading = false;
   bool isGoogleLoading = false;
-  bool obscurePassword = true;   
+  bool obscurePassword = true;
 
   Future<void> login() async {
     setState(() {
@@ -80,7 +79,6 @@ class _LoginScreenState extends State<LoginScreen> {
       }
     }
   }
-  
 
   // ===== Google Sign-In function =====
   Future<void> loginWithGoogle() async {
@@ -207,7 +205,10 @@ class _LoginScreenState extends State<LoginScreen> {
                 Expanded(child: Divider(color: Colors.grey.shade300)),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: Text('OR', style: TextStyle(color: Colors.grey.shade600)),
+                  child: Text(
+                    'OR',
+                    style: TextStyle(color: Colors.grey.shade600),
+                  ),
                 ),
                 Expanded(child: Divider(color: Colors.grey.shade300)),
               ],
@@ -225,7 +226,11 @@ class _LoginScreenState extends State<LoginScreen> {
                         width: 18,
                         child: CircularProgressIndicator(strokeWidth: 2),
                       )
-                    : const Icon(Icons.g_mobiledata, size: 28, color: Colors.blue),
+                    : const Icon(
+                        Icons.g_mobiledata,
+                        size: 28,
+                        color: Colors.blue,
+                      ),
                 label: const Text('Continue with Google'),
                 style: OutlinedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(vertical: 14),
