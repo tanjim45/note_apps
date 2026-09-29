@@ -80,7 +80,7 @@ class _LoginScreenState extends State<LoginScreen> {
     }
   }
 
-  // ===== Google Sign-In function =====
+  //  Google Sign-In function 
   Future<void> loginWithGoogle() async {
     setState(() {
       isGoogleLoading = true;
@@ -198,7 +198,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
 
-            // ===== "OR" Divider =====
+            //  "OR" Divider 
             const SizedBox(height: 20),
             Row(
               children: [
@@ -215,7 +215,7 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             const SizedBox(height: 20),
 
-            // ===== Google Sign-In Button =====
+            // Google Sign-In Button 
             SizedBox(
               width: double.infinity,
               child: OutlinedButton.icon(
