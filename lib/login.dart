@@ -540,7 +540,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   const SizedBox(height: 12),
 
                   Text(
-                    'Made for your ideas ✨',
+                    '© 2026 MD TANJIM MAHATAB BHUIYAN All rights reserved.',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: mutedColor.withValues(alpha: 0.8),

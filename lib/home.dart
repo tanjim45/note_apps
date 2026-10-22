@@ -38,6 +38,64 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Future<void> _logout() async {
+  final confirmed = await showDialog<bool>(
+    context: context,
+    builder: (dialogContext) {
+      return AlertDialog(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(24),
+        ),
+        icon: Container(
+          height: 60,
+          width: 60,
+          decoration: BoxDecoration(
+            color: Colors.red.withValues(alpha: 0.10),
+            shape: BoxShape.circle,
+          ),
+          child: const Icon(
+            Icons.logout_rounded,
+            color: Colors.red,
+            size: 30,
+          ),
+        ),
+        title: const Text(
+          'Are you sure?',
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontWeight: FontWeight.w800,
+          ),
+        ),
+        content: const Text(
+          'Are you sure you want to log out?',
+          textAlign: TextAlign.center,
+        ),
+        actionsAlignment: MainAxisAlignment.spaceEvenly,
+        actions: [
+          OutlinedButton(
+            onPressed: () {
+              Navigator.pop(dialogContext, false);
+            },
+            child: const Text('No'),
+          ),
+          FilledButton(
+            style: FilledButton.styleFrom(
+              backgroundColor: Colors.red,
+              foregroundColor: Colors.white,
+            ),
+            onPressed: () {
+              Navigator.pop(dialogContext, true);
+            },
+            child: const Text('Yes, Logout'),
+          ),
+        ],
+      );
+    },
+  );
+
+  
+  if (confirmed != true || !mounted) return;
+
+  try {
     await FirebaseAuth.instance.signOut();
 
     if (!mounted) return;
@@ -49,7 +107,16 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       (route) => false,
     );
+  } catch (e) {
+    if (!mounted) return;
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text('Logout failed. Please try again.'),
+      ),
+    );
   }
+}
 
   Future<void> _deleteNote(String noteId) async {
     try {
